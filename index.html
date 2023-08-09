@@ -54,5 +54,20 @@
   <footer>
     <p>&copy; 2023. Todos os direitos reservados.</p>
   </footer>
+  <script>
+  function scrollToAnchor(anchorId) {
+    const anchorElement = document.querySelector(anchorId);
+    if (anchorElement) {
+      window.scrollTo({
+        top: anchorElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+  scrollToAnchor('#home');
+  scrollToAnchor('#empresa');
+  scrollToAnchor('#servicos');
+  scrollToAnchor('#contato');
+  </script>
 </body>
 </html>
