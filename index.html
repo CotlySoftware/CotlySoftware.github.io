@@ -55,21 +55,28 @@
     <p>&copy; 2023. Todos os direitos reservados.</p>
   </footer>
   <script>
-  function scrollToAnchor(anchorId) {
-    const anchorElement = document.querySelector(anchorId);
-    if (anchorElement) {
-      window.scrollTo({
-        top: anchorElement.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  }
-document.addEventListener('DOMContentLoaded', function() {
-  scrollToAnchor('#home');
-  scrollToAnchor('#empresa');
-  scrollToAnchor('#servicos');
-  scrollToAnchor('#contato');
+ document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('nav a');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(event) {
+      event.preventDefault(); // Impede o comportamento padrão do link
+      
+      const targetId = link.getAttribute('href');
+      scrollToAnchor(targetId);
+    });
+  });
 });
+
+function scrollToAnchor(anchorId) {
+  const anchorElement = document.querySelector(anchorId);
+  if (anchorElement) {
+    window.scrollTo({
+      top: anchorElement.offsetTop,
+      behavior: 'smooth'
+    });
+  }
+}
   </script>
 </body>
 </html>
